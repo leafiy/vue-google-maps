@@ -1,6 +1,6 @@
 <template>
   <input type="text" :placeholder="placeholder" ref="input"
-    :value="value"/>
+    :value="value" :classes="classes" />
 </template>
 
 <script src="./autocompleteImpl.js">

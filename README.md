@@ -2,6 +2,8 @@
 
 ## Vue-2 port of vue-google-maps
 
+Forked from [xkjyeah/vue-google-maps](https://github.com/xkjyeah/vue-google-maps)
+
 This is the Vue 2.x port of vue-google-maps!
 
 If you have used vue-google-maps with Vue 1.x before, refer to [Upgrading](UPGRADING.md).
