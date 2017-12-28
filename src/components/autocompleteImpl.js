@@ -35,7 +35,9 @@ const props = {
   options: {
     type: Object
   },
-  classes: String
+  classes: {
+    type: String
+  }
 }
 
 export default {
@@ -54,7 +56,7 @@ export default {
 
       /* eslint-disable no-unused-vars */
       const finalOptions = pickBy(Object.assign({},
-        omit(options, ['options', 'selectFirstOnEnter', 'value', 'place', 'placeholder']),
+        omit(options, ['options', 'selectFirstOnEnter', 'value', 'place', 'placeholder', 'classes']),
         options.options
       ), (v, k) => v !== undefined)
 
@@ -66,7 +68,7 @@ export default {
       })
 
       this.$autocomplete = new google.maps.places.Autocomplete(this.$refs.input, finalOptions)
-      propsBinder(this, this.$autocomplete, omit(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions']))
+      propsBinder(this, this.$autocomplete, omit(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions', 'classes']))
 
       this.$autocomplete.addListener('place_changed', () => {
         this.$emit('place_changed', this.$autocomplete.getPlace())

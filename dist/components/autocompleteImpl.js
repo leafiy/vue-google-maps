@@ -61,7 +61,9 @@ var props = {
   options: {
     type: Object
   },
-  classes: String
+  classes: {
+    type: String
+  }
 };
 
 exports.default = {
@@ -81,7 +83,7 @@ exports.default = {
       }
 
       /* eslint-disable no-unused-vars */
-      var finalOptions = (0, _pickBy3.default)(Object.assign({}, (0, _omit3.default)(options, ['options', 'selectFirstOnEnter', 'value', 'place', 'placeholder']), options.options), function (v, k) {
+      var finalOptions = (0, _pickBy3.default)(Object.assign({}, (0, _omit3.default)(options, ['options', 'selectFirstOnEnter', 'value', 'place', 'placeholder', 'classes']), options.options), function (v, k) {
         return v !== undefined;
       });
 
@@ -93,7 +95,7 @@ exports.default = {
       });
 
       _this.$autocomplete = new google.maps.places.Autocomplete(_this.$refs.input, finalOptions);
-      (0, _propsBinder2.default)(_this, _this.$autocomplete, (0, _omit3.default)(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions']));
+      (0, _propsBinder2.default)(_this, _this.$autocomplete, (0, _omit3.default)(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions', 'classes']));
 
       _this.$autocomplete.addListener('place_changed', function () {
         _this.$emit('place_changed', _this.$autocomplete.getPlace());
