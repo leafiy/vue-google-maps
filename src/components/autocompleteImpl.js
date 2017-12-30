@@ -2,6 +2,8 @@ import { clone, pickBy, omit } from 'lodash'
 import propsBinder from '../utils/propsBinder.js'
 import downArrowSimulator from '../utils/simulateArrowDown.js'
 import getPropsValuesMixin from '../utils/getPropsValuesMixin.js'
+import pluckAddressName from '../utils/pluckAddressName.js'
+
 import {
   loaded
 } from '../manager.js'
@@ -71,7 +73,9 @@ export default {
       propsBinder(this, this.$autocomplete, omit(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions', 'classes']))
 
       this.$autocomplete.addListener('place_changed', () => {
-        this.$emit('place_changed', this.$autocomplete.getPlace())
+        let place = this.$autocomplete.getPlace();
+        place = pluckAddressName(place)
+        this.$emit('place_changed', place)
       })
     })
   },

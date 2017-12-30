@@ -28,6 +28,10 @@ var _getPropsValuesMixin = require('../utils/getPropsValuesMixin.js');
 
 var _getPropsValuesMixin2 = _interopRequireDefault(_getPropsValuesMixin);
 
+var _pluckAddressName = require('../utils/pluckAddressName.js');
+
+var _pluckAddressName2 = _interopRequireDefault(_pluckAddressName);
+
 var _manager = require('../manager.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -98,7 +102,9 @@ exports.default = {
       (0, _propsBinder2.default)(_this, _this.$autocomplete, (0, _omit3.default)(props, ['placeholder', 'place', 'selectFirstOnEnter', 'value', 'componentRestrictions', 'classes']));
 
       _this.$autocomplete.addListener('place_changed', function () {
-        _this.$emit('place_changed', _this.$autocomplete.getPlace());
+        var place = _this.$autocomplete.getPlace();
+        place = (0, _pluckAddressName2.default)(place);
+        _this.$emit('place_changed', place);
       });
     });
   },

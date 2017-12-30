@@ -17,7 +17,6 @@ function capitalizeFirstLetter(string) {
 }
 
 exports.default = function (vueElement, googleMapsElement, props, options) {
-  console.log(props);
   options = options || {};
   var _options = options,
       afterModelChanged = _options.afterModelChanged;
